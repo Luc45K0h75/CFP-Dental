@@ -834,3 +834,102 @@ p  { font-size: 1.0625rem; line-height: 1.72; }
   .about__stats   { grid-template-columns: 1fr; }
   .hero__heading  { font-size: 2.75rem; }
 }
+
+/* ============================================================
+   SERVICES PAGE
+============================================================ */
+ 
+/* --- Page header ------------------------------------------- */
+.page-header {
+  background: var(--teal);
+  color: var(--cream);
+  padding-block: 6rem 4rem;
+  padding-top: calc(var(--nav-h) + 4rem);
+}
+ 
+.page-header .eyebrow { color: var(--gold-light); }
+ 
+.page-header__title {
+  color: var(--cream);
+  margin-block: .75rem 1.25rem;
+}
+ 
+.page-header__lead {
+  color: rgba(247,244,239,.75);
+  max-width: 600px;
+}
+ 
+/* --- Services list ----------------------------------------- */
+.services-list {
+  display: flex;
+  flex-direction: column;
+}
+ 
+.service-item {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  padding-block: 3rem;
+  border-bottom: 1px solid var(--border);
+}
+ 
+.service-item:last-child { border-bottom: none; }
+ 
+.service-item--alt {
+  background: var(--cream);
+  margin-inline: calc(clamp(1.25rem, 5vw, 3rem) * -1);
+  padding-inline: clamp(1.25rem, 5vw, 3rem);
+  border-bottom: none;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+ 
+.service-item__icon {
+  width: 64px;
+  height: 64px;
+  background: var(--teal);
+  border-radius: var(--r-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--gold);
+  margin-top: .25rem;
+}
+ 
+.service-item__icon svg {
+  width: 28px;
+  height: 28px;
+}
+ 
+.service-item--alt .service-item__icon {
+  background: var(--teal-mid);
+}
+ 
+.service-item__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--teal);
+  margin-bottom: 1rem;
+}
+ 
+.service-item__content p + p { margin-top: .875rem; }
+ 
+/* --- Services responsive ----------------------------------- */
+@media (max-width: 640px) {
+  .service-item {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+ 
+  .service-item__icon {
+    width: 52px;
+    height: 52px;
+  }
+ 
+  .service-item__icon svg {
+    width: 22px;
+    height: 22px;
+  }
+}
