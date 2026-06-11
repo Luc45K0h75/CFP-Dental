@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block title %}Our Team — CFP Dental{% endblock %}
+{% block meta_description %}Meet the CFP Dental team. Dr Hang Pham and her support staff bring warmth, expertise and genuine care to every appointment.{% endblock %}
+
+{% block content %}
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <div class="container">
+    <p class="eyebrow">Our Team</p>
+    <h1 class="page-header__title">The people behind your smile</h1>
+    <p class="page-header__lead">At CFP Dental, every member of our team is committed to making your visit as comfortable and positive as possible.</p>
+  </div>
+</section>
+
+<!-- DR HANG -->
+<section class="section section--white">
+  <div class="container">
+    <div class="team-lead__grid">
+
+      <div class="team-lead__image">
+        <img src="{{ url_for('static', filename='images/drhang.webp') }}" alt="Dr Hang Pham, Principal Dentist at CFP Dental" />
+      </div>
+
+      <div class="team-lead__content">
+        <p class="eyebrow">Principal Dentist</p>
+        <h2 class="team-lead__name">Dr Hang Pham</h2>
+        <p class="team-lead__qual">BDSc (UWA)</p>
+        <div class="team-lead__bio">
+          <p>Hang completed her studies locally at UWA and has over 20 years of experience as a dentist in private practice in Perth. She has also acted as a clinical tutor for final year dental students at the Oral Health Centre of Western Australia.</p>
+          <p>Although CFP Dental was only established in 2018, Hang has been part of Currambine Family Practice since it started — she is married to CFP principal Dr Tim Koh.</p>
+          <p>Hang has interests in general dentistry, preventive care and restorative dentistry. As the mother of three boys, she is well equipped to treat children of all ages with patience, calmness and empathy. She also understands the needs of nervous and anxious patients and is adept at putting patients at ease with her approach of kindness and understanding.</p>
+        </div>
+
+        <div class="team-lead__interests">
+          <p class="team-lead__interests-title">Clinical interests</p>
+          <div class="team-lead__tags">
+            <span class="tag">General Dentistry</span>
+            <span class="tag">Preventive Care</span>
+            <span class="tag">Restorative Dentistry</span>
+            <span class="tag">Children's Dentistry</span>
+            <span class="tag">Anxious Patients</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SUPPORT TEAM -->
+<section class="section section--cream">
+  <div class="container">
+    <div class="support-intro">
+      <p class="eyebrow">Support Staff</p>
+      <h2>Our support team</h2>
+      <p class="text-muted">Behind every great appointment is a team that makes it happen.</p>
+    </div>
+
+    <div class="support-grid">
+
+      <div class="support-card">
+        <div class="support-card__image">
+          <img src="{{ url_for('static', filename='images/katie.webp') }}" alt="Katie" />
+        </div>
+        <div class="support-card__content">
+          <h3 class="support-card__name">Katie</h3>
+        </div>
+      </div>
+
+      <div class="support-card">
+        <div class="support-card__image">
+          <img src="{{ url_for('static', filename='images/louisa.webp') }}" alt="Louisa" />
+        </div>
+        <div class="support-card__content">
+          <h3 class="support-card__name">Louisa</h3>
+        </div>
+      </div>
+
+      <div class="support-card">
+        <div class="support-card__image">
+          <img src="{{ url_for('static', filename='images/lili.webp') }}" alt="Lili" />
+        </div>
+        <div class="support-card__content">
+          <h3 class="support-card__name">Lili</h3>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BOOK CTA -->
+<section class="book-banner">
+  <div class="container">
+    <h2>Ready to meet the team?</h2>
+    <p>Book an appointment and experience the CFP Dental difference for yourself.</p>
+    <div class="book-banner__actions">
+      <a href="{{ url_for('main.book') }}" class="btn btn--gold">Book an Appointment</a>
+      <a href="tel:0402210273" class="btn btn--outline">Call 0402 210 273</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
