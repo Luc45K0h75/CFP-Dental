@@ -1,1 +1,247 @@
-hi
+{% extends "base.html" %}
+
+{% block title %}CFP Dental — Family Dentistry, Currambine{% endblock %}
+{% block meta_description %}Family dental care, done better. CFP Dental is located inside Currambine Family Practice, Currambine WA. Book an appointment today.{% endblock %}
+{% block navbar_class %}navbar--hero{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__bg"></div>
+  <div class="hero__inner">
+
+    <div class="hero__content">
+      <p class="hero__location">Currambine, Perth WA</p>
+      <h1 class="hero__heading">
+        Family<br>dentistry,<br><em>done better.</em>
+      </h1>
+      <p class="hero__body">
+        Dr Hang Pham and the CFP Dental team bring warmth, expertise, and genuine care to every appointment — from your first visit to a lifetime of healthy smiles.
+      </p>
+      <div class="hero__actions">
+        <a href="{{ url_for('main.book') }}" class="btn btn--gold">Book an Appointment</a>
+        <a href="{{ url_for('main.services') }}" class="btn btn--outline">Our Services</a>
+      </div>
+    </div>
+
+    <div class="hero__badges">
+      <div class="hero__badge">
+        <div class="hero__badge-logo">HBF</div>
+        <div class="hero__badge-text">
+          <strong>Member Plus Provider</strong>
+          Reduced out-of-pocket costs for HBF members
+        </div>
+      </div>
+      <div class="hero__badge">
+        <div class="hero__badge-logo">HCF</div>
+        <div class="hero__badge-text">
+          <strong>More for Teeth Provider</strong>
+          More back on dental for HCF members
+        </div>
+      </div>
+      <div class="hero__badge">
+        <div class="hero__badge-logo">CDBS</div>
+        <div class="hero__badge-text">
+          <strong>Child Dental Benefit Scheme</strong>
+          Bulk-billed dental for eligible children
+        </div>
+      </div>
+      <div class="hero__badge">
+        <div class="hero__badge-logo">DVA</div>
+        <div class="hero__badge-text">
+          <strong>DVA Patients Welcome</strong>
+          Registered provider for Veterans' Affairs
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section section--white">
+  <div class="container">
+    <div class="about__grid">
+
+      <div class="about__image">
+        <div class="about__image-placeholder">
+          <p>Practice photo</p>
+        </div>
+      </div>
+
+      <div class="about__content">
+        <p class="eyebrow">About Us</p>
+        <h2 class="about__heading">A practice built on trust</h2>
+        <div class="about__body">
+          <p>Going to the dentist can be stressful. At CFP Dental, we know how important it is to find a dentist that you can trust. We believe in providing high quality dental care in a caring and friendly practice.</p>
+          <p>From the moment you make a booking to when you have finished a consultation, we want you to feel comfortable and confident in the care you receive. We take the time to understand what your worries are and what is important to you.</p>
+          <p>We want you to experience a new type of dentist — family dental care, done better.</p>
+        </div>
+        <div class="about__stats">
+          <div class="about__stat">
+            <p class="about__stat-value">All ages</p>
+            <p class="about__stat-label">From toddlers to seniors</p>
+          </div>
+          <div class="about__stat">
+            <p class="about__stat-value">Family</p>
+            <p class="about__stat-label">Friendly practice</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section section--cream">
+  <div class="container">
+    <div class="services__intro">
+      <p class="eyebrow">What We Do</p>
+      <h2>Comprehensive care,<br>all in one place</h2>
+      <p class="text-muted">We offer a broad range of services for all ages — because we believe good dental health is an essential part of a healthy life.</p>
+    </div>
+
+    <div class="services__grid">
+
+      <div class="service-card">
+        <svg class="service-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        <p class="service-card__name">Preventive Dentistry</p>
+      </div>
+
+      <div class="service-card service-card--highlight">
+        <svg class="service-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+          <line x1="12" y1="9" x2="12" y2="13"/>
+          <line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+        <p class="service-card__name">Emergencies</p>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/>
+          <path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+          <path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"/>
+          <path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"/>
+          <path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z"/>
+          <path d="M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"/>
+          <path d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z"/>
+          <path d="M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/>
+        </svg>
+        <p class="service-card__name">Restorations</p>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2"/>
+          <line x1="8" y1="21" x2="16" y2="21"/>
+          <line x1="12" y1="17" x2="12" y2="21"/>
+        </svg>
+        <p class="service-card__name">Crowns &amp; Bridges</p>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+        <p class="service-card__name">Cosmetic Dentistry</p>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        <p class="service-card__name">Dental Care for Kids</p>
+      </div>
+
+    </div>
+
+    <div class="services__cta">
+      <a href="{{ url_for('main.services') }}" class="btn btn--teal">View All Services</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="section section--white">
+  <div class="container">
+    <div class="location__grid">
+
+      <div class="location__map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3385.2!2d115.7533!3d-31.7285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2a32b3e0b1234567%3A0x1234567890abcdef!2s4%20Hobsons%20Gate%2C%20Currambine%20WA%206028!5e0!3m2!1sen!2sau!4v1234567890"
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="CFP Dental location">
+        </iframe>
+      </div>
+
+      <div class="location__content">
+        <p class="eyebrow">Find Us</p>
+        <h2>Conveniently located in Currambine</h2>
+
+        <div class="location__detail">
+          <div class="location__detail-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div>
+            <p class="location__detail-label">Address</p>
+            <p class="location__detail-text">
+              Suite 2/4 Hobson's Gate<br>
+              Currambine WA 6027<br>
+              Inside Currambine Family Practice
+            </p>
+          </div>
+        </div>
+
+        <div class="location__detail">
+          <div class="location__detail-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.38 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.81a16 16 0 0 0 6.08 6.08l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="location__detail-label">Phone &amp; Text</p>
+            <p class="location__detail-text">
+              <a href="tel:0402210273" style="color:var(--teal);font-weight:600;">0402 210 273</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="location__hint">
+          <p><strong>Finding us for the first time?</strong> Look for the orange Petbarn building off Marmion Ave — we're in the same complex. Check in at the Currambine Family Practice reception desk.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK CTA -->
+<section class="book-banner">
+  <div class="container">
+    <h2>Ready to book your appointment?</h2>
+    <p>Fill out our booking form and we'll be in touch within one business day to confirm.</p>
+    <div class="book-banner__actions">
+      <a href="{{ url_for('main.book') }}" class="btn btn--gold">Book an Appointment</a>
+      <a href="tel:0402210273" class="btn btn--outline">Call 0402 210 273</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
