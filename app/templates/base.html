@@ -22,13 +22,13 @@
   <nav class="navbar {% block navbar_class %}navbar--solid{% endblock %}" id="navbar">
     <div class="navbar__inner">
 
-      <a href="{{ url_for('main.home') }}" class="navbar__brand">
+      <a href="{{ url_for('main.index') }}" class="navbar__brand">
         <span class="navbar__brand-name">CFP Dental</span>
         <span class="navbar__brand-sub">Currambine</span>
       </a>
 
       <ul class="navbar__links">
-        <li><a href="{{ url_for('main.home') }}"     class="navbar__link {% if request.endpoint == 'main.home' %}active{% endif %}">Home</a></li>
+        <li><a href="{{ url_for('main.index') }}"     class="navbar__link {% if request.endpoint == 'main.index' %}active{% endif %}">Home</a></li>
         <li><a href="{{ url_for('main.services') }}" class="navbar__link {% if request.endpoint == 'main.services' %}active{% endif %}">Services</a></li>
         <li><a href="{{ url_for('main.team') }}"     class="navbar__link {% if request.endpoint == 'main.team' %}active{% endif %}">Team</a></li>
         <li><a href="{{ url_for('main.location') }}" class="navbar__link {% if request.endpoint == 'main.location' %}active{% endif %}">Location</a></li>
@@ -57,7 +57,7 @@
 
   <!-- Mobile drawer -->
   <div class="navbar__drawer" id="navDrawer">
-    <a href="{{ url_for('main.home') }}"     class="navbar__drawer-link">Home</a>
+    <a href="{{ url_for('main.index') }}"     class="navbar__drawer-link">Home</a>
     <a href="{{ url_for('main.services') }}" class="navbar__drawer-link">Services</a>
     <a href="{{ url_for('main.team') }}"     class="navbar__drawer-link">Team</a>
     <a href="{{ url_for('main.location') }}" class="navbar__drawer-link">Location</a>
@@ -92,7 +92,7 @@
         <div class="footer__col">
           <p class="footer__col-title">Navigate</p>
           <nav aria-label="Footer navigation">
-            <a href="{{ url_for('main.home') }}">Home</a>
+            <a href="{{ url_for('main.index') }}">Home</a>
             <a href="{{ url_for('main.services') }}">Services</a>
             <a href="{{ url_for('main.team') }}">Our Team</a>
             <a href="{{ url_for('main.location') }}">Location</a>
