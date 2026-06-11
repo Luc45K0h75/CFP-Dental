@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}CFP Dental — Currambine{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}Family dentistry, done better. Located inside Currambine Family Practice, Currambine WA.{% endblock %}" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  {% block extra_css %}{% endblock %}
+</head>
+<body class="{% block body_class %}{% endblock %}">
+
+  <!-- ================================================
+       NAVBAR
+  ================================================ -->
+  <nav class="navbar {% block navbar_class %}navbar--solid{% endblock %}" id="navbar">
+    <div class="navbar__inner">
+
+      <a href="{{ url_for('main.home') }}" class="navbar__brand">
+        <span class="navbar__brand-name">CFP Dental</span>
+        <span class="navbar__brand-sub">Currambine</span>
+      </a>
+
+      <ul class="navbar__links">
+        <li><a href="{{ url_for('main.home') }}"     class="navbar__link {% if request.endpoint == 'main.home' %}active{% endif %}">Home</a></li>
+        <li><a href="{{ url_for('main.services') }}" class="navbar__link {% if request.endpoint == 'main.services' %}active{% endif %}">Services</a></li>
+        <li><a href="{{ url_for('main.team') }}"     class="navbar__link {% if request.endpoint == 'main.team' %}active{% endif %}">Team</a></li>
+        <li><a href="{{ url_for('main.location') }}" class="navbar__link {% if request.endpoint == 'main.location' %}active{% endif %}">Location</a></li>
+        <li>
+          <a href="{{ url_for('main.book') }}" class="navbar__cta">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="4" width="18" height="18" rx="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8"  y1="2" x2="8"  y2="6"/>
+              <line x1="3"  y1="10" x2="21" y2="10"/>
+            </svg>
+            Book Now
+          </a>
+        </li>
+      </ul>
+
+      <!-- Mobile toggle -->
+      <button class="navbar__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div class="navbar__drawer" id="navDrawer">
+    <a href="{{ url_for('main.home') }}"     class="navbar__drawer-link">Home</a>
+    <a href="{{ url_for('main.services') }}" class="navbar__drawer-link">Services</a>
+    <a href="{{ url_for('main.team') }}"     class="navbar__drawer-link">Team</a>
+    <a href="{{ url_for('main.location') }}" class="navbar__drawer-link">Location</a>
+    <a href="{{ url_for('main.book') }}"     class="navbar__drawer-link navbar__drawer-cta">Book Now</a>
+  </div>
+
+  <!-- ================================================
+       CONTENT
+  ================================================ -->
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- ================================================
+       FOOTER
+  ================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+
+        <div class="footer__brand">
+          <p class="footer__brand-name">CFP Dental</p>
+          <p class="footer__brand-tagline">Family Dentistry, Done Better</p>
+          <address class="footer__address">
+            Suite 2/4 Hobson's Gate<br>
+            Currambine WA 6028<br>
+            Inside Currambine Family Practice
+          </address>
+          <a href="tel:0402210273" class="footer__phone">0402 210 273</a>
+        </div>
+
+        <div class="footer__col">
+          <p class="footer__col-title">Navigate</p>
+          <nav aria-label="Footer navigation">
+            <a href="{{ url_for('main.home') }}">Home</a>
+            <a href="{{ url_for('main.services') }}">Services</a>
+            <a href="{{ url_for('main.team') }}">Our Team</a>
+            <a href="{{ url_for('main.location') }}">Location</a>
+            <a href="{{ url_for('main.book') }}">Book Now</a>
+          </nav>
+        </div>
+
+        <div class="footer__col">
+          <p class="footer__col-title">We Accept</p>
+          <nav aria-label="Health funds">
+            <a href="{{ url_for('main.services') }}">HBF Member Plus</a>
+            <a href="{{ url_for('main.services') }}">HCF More for Teeth</a>
+            <a href="{{ url_for('main.services') }}">CDBS</a>
+            <a href="{{ url_for('main.services') }}">DVA</a>
+            <a href="{{ url_for('main.services') }}">MPDS</a>
+            <a href="{{ url_for('main.services') }}">All major cards</a>
+          </nav>
+        </div>
+
+      </div>
+
+      <hr class="footer__rule" />
+
+      <p class="footer__copy">&copy; {{ now.year }} CFP Dental. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+  {% block extra_js %}{% endblock %}
+
+</body>
+</html>
