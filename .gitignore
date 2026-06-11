@@ -1,0 +1,25 @@
+# Environment
+.env
+.env.*
+
+# Database
+instance/
+*.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/
+env/
+seed.py
+seed2.py
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
