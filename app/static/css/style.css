@@ -502,8 +502,8 @@ p  { font-size: 1.0625rem; line-height: 1.72; }
 .hero__bg {
   position: absolute;
   inset: 0;
-  background: url('/static/images/hero-placeholder.jpg') center/cover no-repeat;
-  opacity: .18;
+  background: url('/static/images/hero_image.webp') center/cover no-repeat;
+  opacity: .35;
 }
 
 .hero__inner {
