@@ -14,10 +14,6 @@ def services():
 def team():
     return render_template('team.html')
 
-@main.route('/location')
-def location():
-    return render_template('location.html')
-
 @main.route('/book')
 def book():
     return render_template('book.html')
