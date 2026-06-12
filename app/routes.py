@@ -1,4 +1,8 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, flash, redirect, url_for
+from .forms import BookingForm
+from . import mail
+from flask_mail import Message
+import os
 
 main = Blueprint('main', __name__)
 
@@ -14,6 +18,25 @@ def services():
 def team():
     return render_template('team.html')
 
-@main.route('/book')
+@main.route('/book', methods=['GET', 'POST'])
 def book():
-    return render_template('book.html')
+    booking_form = BookingForm()
+    if booking_form.validate_on_submit():
+        # Send email
+        msg = Message(
+            subject=f'New Booking Request — {booking_form.first_name.data} {booking_form.last_name.data}',
+            sender=os.getenv('MAIL_USERNAME'),
+            recipients=[os.getenv('MAIL_RECEIVER')],
+            reply_to=booking_form.email.data,
+            body=f"""New booking request from {booking_form.first_name.data} {booking_form.last_name.data} on the CFP Dental website.
+
+Phone: {booking_form.phone.data}
+Email: {booking_form.email.data}
+
+Message: {booking_form.message.data}
+        """
+        )
+        mail.send(msg)
+        flash('Your booking request has been submitted successfully!', 'success')
+        return redirect(url_for('main.book'))
+    return render_template('book.html', form=booking_form)
