@@ -728,7 +728,7 @@ p  { font-size: 1.0625rem; line-height: 1.72; }
 /* --- Location preview -------------------------------------- */
 .location__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.2fr 0.8fr;
   gap: 4rem;
   align-items: center;
 }
@@ -737,9 +737,14 @@ p  { font-size: 1.0625rem; line-height: 1.72; }
   border-radius: var(--r-lg);
   overflow: hidden;
   aspect-ratio: 4/3;
+  position: relative;
+  box-shadow: var(--shadow-hover);
+  border: 1px solid var(--border);
 }
 
 .location__map iframe {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   border: none;
@@ -836,9 +841,142 @@ p  { font-size: 1.0625rem; line-height: 1.72; }
 }
 
 /* ============================================================
+   TEAM PAGE
+============================================================ */
+
+/* --- Dr Hang lead section ---------------------------------- */
+.team-lead__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.team-lead__image {
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  background: var(--cream-dark);
+}
+
+.team-lead__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.team-lead__name {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--teal);
+  margin-block: .5rem .25rem;
+}
+
+.team-lead__qual {
+  font-size: .875rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: .04em;
+  margin-bottom: 1.75rem;
+}
+
+.team-lead__bio p + p { margin-top: 1rem; }
+
+.team-lead__interests { margin-top: 2rem; }
+
+.team-lead__interests-title {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: .75rem;
+}
+
+.team-lead__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: .35rem .85rem;
+  background: var(--cream-dark);
+  border-radius: var(--r-pill);
+  font-size: .8rem;
+  font-weight: 500;
+  color: var(--teal);
+}
+
+/* --- Support team ------------------------------------------ */
+.support-intro {
+  text-align: center;
+  max-width: 520px;
+  margin-inline: auto;
+  margin-bottom: 3rem;
+}
+
+.support-intro h2 { margin-block: .75rem .75rem; }
+
+.support-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.support-card {
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: var(--white);
+  box-shadow: var(--shadow);
+  transition: box-shadow var(--ease), transform var(--ease);
+}
+
+.support-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+}
+
+.support-card__image {
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  background: var(--cream-dark);
+}
+
+.support-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.support-card__content {
+  padding: 1.25rem 1.5rem;
+}
+
+.support-card__name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--teal);
+  font-weight: 400;
+}
+
+/* --- Team responsive --------------------------------------- */
+@media (max-width: 900px) {
+  .team-lead__grid { grid-template-columns: 1fr; gap: 3rem; }
+  .team-lead__image { aspect-ratio: 4/3; }
+  .support-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .support-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
    SERVICES PAGE
 ============================================================ */
- 
+
 /* --- Page header ------------------------------------------- */
 .page-header {
   background: var(--teal);
@@ -846,25 +984,25 @@ p  { font-size: 1.0625rem; line-height: 1.72; }
   padding-block: 6rem 4rem;
   padding-top: calc(var(--nav-h) + 4rem);
 }
- 
+
 .page-header .eyebrow { color: var(--gold-light); }
- 
+
 .page-header__title {
   color: var(--cream);
   margin-block: .75rem 1.25rem;
 }
- 
+
 .page-header__lead {
   color: rgba(247,244,239,.75);
   max-width: 600px;
 }
- 
+
 /* --- Services list ----------------------------------------- */
 .services-list {
   display: flex;
   flex-direction: column;
 }
- 
+
 .service-item {
   display: grid;
   grid-template-columns: 80px 1fr;
@@ -873,9 +1011,9 @@ p  { font-size: 1.0625rem; line-height: 1.72; }
   padding-block: 3rem;
   border-bottom: 1px solid var(--border);
 }
- 
+
 .service-item:last-child { border-bottom: none; }
- 
+
 .service-item--alt {
   background: var(--cream);
   margin-inline: calc(clamp(1.25rem, 5vw, 3rem) * -1);
@@ -884,7 +1022,7 @@ p  { font-size: 1.0625rem; line-height: 1.72; }
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
- 
+
 .service-item__icon {
   width: 64px;
   height: 64px;
@@ -897,172 +1035,39 @@ p  { font-size: 1.0625rem; line-height: 1.72; }
   color: var(--gold);
   margin-top: .25rem;
 }
- 
+
 .service-item__icon svg {
   width: 28px;
   height: 28px;
 }
- 
+
 .service-item--alt .service-item__icon {
   background: var(--teal-mid);
 }
- 
+
 .service-item__title {
   font-family: var(--font-display);
   font-size: clamp(1.5rem, 3vw, 2rem);
   color: var(--teal);
   margin-bottom: 1rem;
 }
- 
+
 .service-item__content p + p { margin-top: .875rem; }
- 
+
 /* --- Services responsive ----------------------------------- */
 @media (max-width: 640px) {
   .service-item {
     grid-template-columns: 1fr;
     gap: 1.25rem;
   }
- 
+
   .service-item__icon {
     width: 52px;
     height: 52px;
   }
- 
+
   .service-item__icon svg {
     width: 22px;
     height: 22px;
   }
-}
-
-/* ============================================================
-   TEAM PAGE
-============================================================ */
- 
-/* --- Dr Hang lead section ---------------------------------- */
-.team-lead__grid {
-  display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: 5rem;
-  align-items: start;
-}
- 
-.team-lead__image {
-  border-radius: var(--r-lg);
-  overflow: hidden;
-  aspect-ratio: 3/4;
-  background: var(--cream-dark);
-}
- 
-.team-lead__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-}
- 
-.team-lead__name {
-  font-size: clamp(2rem, 4vw, 3rem);
-  color: var(--teal);
-  margin-block: .5rem .25rem;
-}
- 
-.team-lead__qual {
-  font-size: .875rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  letter-spacing: .04em;
-  margin-bottom: 1.75rem;
-}
- 
-.team-lead__bio p + p { margin-top: 1rem; }
- 
-.team-lead__interests { margin-top: 2rem; }
- 
-.team-lead__interests-title {
-  font-size: .72rem;
-  font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: .75rem;
-}
- 
-.team-lead__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .5rem;
-}
- 
-.tag {
-  display: inline-block;
-  padding: .35rem .85rem;
-  background: var(--cream-dark);
-  border-radius: var(--r-pill);
-  font-size: .8rem;
-  font-weight: 500;
-  color: var(--teal);
-}
- 
-/* --- Support team ------------------------------------------ */
-.support-intro {
-  text-align: center;
-  max-width: 520px;
-  margin-inline: auto;
-  margin-bottom: 3rem;
-}
- 
-.support-intro h2 { margin-block: .75rem .75rem; }
- 
-.support-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
- 
-.support-card {
-  border-radius: var(--r-md);
-  overflow: hidden;
-  background: var(--white);
-  box-shadow: var(--shadow);
-  transition: box-shadow var(--ease), transform var(--ease);
-}
- 
-.support-card:hover {
-  box-shadow: var(--shadow-hover);
-  transform: translateY(-3px);
-}
- 
-.support-card__image {
-  aspect-ratio: 1/1;
-  overflow: hidden;
-  background: var(--cream-dark);
-}
- 
-.support-card__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-}
- 
-.support-card__content {
-  padding: 1.25rem 1.5rem;
-}
- 
-.support-card__name {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  color: var(--teal);
-  font-weight: 400;
-}
- 
-/* --- Team responsive --------------------------------------- */
-@media (max-width: 900px) {
-  .team-lead__grid { grid-template-columns: 1fr; gap: 3rem; }
-  .team-lead__image { aspect-ratio: 4/3; }
-  .support-grid { grid-template-columns: repeat(2, 1fr); }
-}
- 
-@media (max-width: 560px) {
-  .support-grid { grid-template-columns: 1fr; }
 }
