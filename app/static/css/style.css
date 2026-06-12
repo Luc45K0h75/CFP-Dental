@@ -627,6 +627,12 @@ p  { font-size: 1.0625rem; line-height: 1.72; }
   background: var(--cream-dark);
 }
 
+.about__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .about__image-placeholder {
   width: 100%;
   height: 100%;
@@ -645,6 +651,14 @@ p  { font-size: 1.0625rem; line-height: 1.72; }
 .about__heading { margin-block: 1rem 1.5rem; }
 
 .about__body p + p { margin-top: 1rem; }
+
+.about__attribution {
+  margin-top: 1.25rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--teal);
+}
 
 .about__stats {
   display: grid;
