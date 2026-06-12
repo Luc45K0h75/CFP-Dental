@@ -1,10 +1,18 @@
-from flask import Blueprint, render_template, flash, redirect, url_for
+from flask import Blueprint, render_template, flash, redirect, url_for, send_from_directory
 from .forms import BookingForm
 from . import mail
 from flask_mail import Message
 import os
 
 main = Blueprint('main', __name__)
+
+@main.route('/robots.txt')
+def robots():
+    return send_from_directory(os.path.join(main.root_path, '..'), 'robots.txt')
+
+@main.route('/sitemap.xml')
+def sitemap():
+    return send_from_directory(os.path.join(main.root_path, '..'), 'sitemap.xml')
 
 @main.route('/')
 def index():
