@@ -3,6 +3,10 @@ from flask_mail import Mail
 from datetime import datetime
 from dotenv import load_dotenv
 import os
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
+
+limiter = Limiter(key_func=get_remote_address, default_limits=["200 per day", "50 per hour"])
 
 load_dotenv()
 mail = Mail()
@@ -19,6 +23,7 @@ def create_app():
     app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
 
     mail.init_app(app)
+    limiter.init_app(app)
 
     from .routes import main
     app.register_blueprint(main)

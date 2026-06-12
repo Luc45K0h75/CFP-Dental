@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, flash, redirect, url_for, send_fro
 from .forms import BookingForm
 from . import mail
 from flask_mail import Message
+from . import limiter
 import os
 
 main = Blueprint('main', __name__)
@@ -27,6 +28,7 @@ def team():
     return render_template('team.html')
 
 @main.route('/book', methods=['GET', 'POST'])
+@limiter.limit("5 per minute; 20 per hour")
 def book():
     booking_form = BookingForm()
     if booking_form.validate_on_submit():
