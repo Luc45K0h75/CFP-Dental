@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+
+{% block title %}Book an Appointment — CFP Dental{% endblock %}
+{% block meta_description %}Request an appointment at CFP Dental in Currambine. Fill out the form and we'll be in touch within one business day.{% endblock %}
+
+{% block content %}
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <div class="container">
+    <p class="eyebrow">Appointments</p>
+    <h1 class="page-header__title">Let's get you in the chair</h1>
+    <p class="page-header__lead">Fill out the form and we'll be in touch within one business day to confirm your appointment. Prefer to call? Reach us on <a href="tel:0402210273" style="color:var(--gold-light);font-weight:600;">0402 210 273</a> — calls and texts both welcome.</p>
+  </div>
+</section>
+
+<!-- BOOKING FORM -->
+<section class="section section--white">
+  <div class="container">
+    <div class="book__grid">
+
+      <!-- Form -->
+      <div class="book__form-wrap">
+
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="flash flash--{{ category }}">
+                {% if category == 'success' %}
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                {% endif %}
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="{{ url_for('main.book') }}" novalidate>
+          {{ form.hidden_tag() }}
+
+          <div class="form__row">
+            <div class="form__group">
+              {{ form.first_name.label(class="form__label") }}
+              {{ form.first_name(class="form__input", placeholder="Jane") }}
+              {% if form.first_name.errors %}
+                {% for error in form.first_name.errors %}
+                  <p class="form__error">{{ error }}</p>
+                {% endfor %}
+              {% endif %}
+            </div>
+
+            <div class="form__group">
+              {{ form.last_name.label(class="form__label") }}
+              {{ form.last_name(class="form__input", placeholder="Smith") }}
+              {% if form.last_name.errors %}
+                {% for error in form.last_name.errors %}
+                  <p class="form__error">{{ error }}</p>
+                {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="form__group">
+            {{ form.email.label(class="form__label") }}
+            {{ form.email(class="form__input", placeholder="jane@email.com") }}
+            {% if form.email.errors %}
+              {% for error in form.email.errors %}
+                <p class="form__error">{{ error }}</p>
+              {% endfor %}
+            {% endif %}
+          </div>
+
+          <div class="form__group">
+            {{ form.phone.label(class="form__label") }}
+            {{ form.phone(class="form__input", placeholder="04xx xxx xxx") }}
+            {% if form.phone.errors %}
+              {% for error in form.phone.errors %}
+                <p class="form__error">{{ error }}</p>
+              {% endfor %}
+            {% endif %}
+          </div>
+
+          <div class="form__group">
+            {{ form.message.label(class="form__label") }}
+            {{ form.message(class="form__input form__textarea", placeholder="Let us know what you'd like to book in for, preferred times, or anything else we should know.") }}
+            {% if form.message.errors %}
+              {% for error in form.message.errors %}
+                <p class="form__error">{{ error }}</p>
+              {% endfor %}
+            {% endif %}
+          </div>
+
+          <button type="submit" class="btn btn--gold btn--full">Send Booking Request</button>
+
+        </form>
+      </div>
+
+      <!-- Side info -->
+      <div class="book__side">
+
+        <div class="book__contact-card">
+          <div class="book__contact-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.38 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.81a16 16 0 0 0 6.08 6.08l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="book__contact-label">Call or Text</p>
+            <a href="tel:0402210273" class="book__contact-value">0402 210 273</a>
+          </div>
+        </div>
+
+        <div class="book__info">
+          <h3>What to expect</h3>
+          <ul class="book__checklist">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              We'll confirm your appointment within one business day
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Let us know if it's an emergency and we'll prioritise your care
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              We welcome patients of all ages
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              HBF, HCF, CDBS, DVA and MPDS accepted
+            </li>
+          </ul>
+        </div>
+
+        <div class="book__hours">
+          <h3>Opening Hours</h3>
+          <div class="book__hours-list">
+            <div class="book__hours-row">
+              <span>Monday – Friday</span>
+              <span>8:30am – 5:30pm</span>
+            </div>
+            <div class="book__hours-row">
+              <span>Saturday</span>
+              <span>By appointment</span>
+            </div>
+            <div class="book__hours-row">
+              <span>Sunday / Public Holidays</span>
+              <span>Closed</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

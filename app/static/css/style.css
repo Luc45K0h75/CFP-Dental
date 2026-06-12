@@ -974,8 +974,214 @@ p  { font-size: 1.0625rem; line-height: 1.72; }
 }
 
 /* ============================================================
-   SERVICES PAGE
+   BOOK PAGE
 ============================================================ */
+
+.book__grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+/* --- Form -------------------------------------------------- */
+.book__form-wrap {
+  background: var(--white);
+  border-radius: var(--r-lg);
+  padding: 2.5rem;
+  box-shadow: var(--shadow);
+}
+
+.form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.form__group {
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+  margin-bottom: 1.25rem;
+}
+
+.form__label {
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: .02em;
+}
+
+.form__input {
+  width: 100%;
+  padding: .75rem 1rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-sm);
+  font-family: var(--font-body);
+  font-size: .9375rem;
+  color: var(--text);
+  background: var(--cream);
+  transition: border-color var(--ease), box-shadow var(--ease);
+  outline: none;
+}
+
+.form__input:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(30,64,64,.1);
+  background: var(--white);
+}
+
+.form__input::placeholder { color: #aab5b5; }
+
+.form__textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.form__error {
+  font-size: .8rem;
+  color: #c0392b;
+  margin-top: .2rem;
+}
+
+.btn--full { width: 100%; justify-content: center; }
+
+/* Flash messages */
+.flash {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--r-sm);
+  margin-bottom: 1.5rem;
+  font-size: .9rem;
+  font-weight: 500;
+}
+
+.flash--success {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
+}
+
+.flash--error {
+  background: #fdecea;
+  color: #c62828;
+  border: 1px solid #ef9a9a;
+}
+
+/* --- Side info --------------------------------------------- */
+.book__side {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.book__contact-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--teal);
+  border-radius: var(--r-md);
+  padding: 1.25rem 1.5rem;
+  color: var(--cream);
+}
+
+.book__contact-icon {
+  width: 44px;
+  height: 44px;
+  background: rgba(247,244,239,.12);
+  border-radius: var(--r-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--gold);
+}
+
+.book__contact-label {
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: .2rem;
+}
+
+.book__contact-value {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--cream);
+  transition: color var(--ease);
+}
+
+.book__contact-value:hover { color: var(--gold-light); }
+
+.book__info,
+.book__hours {
+  background: var(--cream-dark);
+  border-radius: var(--r-md);
+  padding: 1.5rem;
+}
+
+.book__info h3,
+.book__hours h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--teal);
+  margin-bottom: 1rem;
+}
+
+.book__checklist {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+
+.book__checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: .6rem;
+  font-size: .875rem;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.book__checklist svg {
+  color: var(--teal);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.book__hours-list {
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+
+.book__hours-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: .875rem;
+  color: var(--text);
+  padding-bottom: .6rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.book__hours-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* --- Book responsive --------------------------------------- */
+@media (max-width: 900px) {
+  .book__grid { grid-template-columns: 1fr; gap: 3rem; }
+}
+
+@media (max-width: 560px) {
+  .form__row { grid-template-columns: 1fr; }
+  .book__form-wrap { padding: 1.5rem; }
+}
 
 /* --- Page header ------------------------------------------- */
 .page-header {
