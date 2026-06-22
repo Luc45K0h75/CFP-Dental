@@ -16,6 +16,7 @@ def sitemap():
     return send_from_directory(os.path.join(main.root_path, '..'), 'sitemap.xml')
 
 @main.route('/')
+@main.route('/home')
 def index():
     return render_template('index.html')
 
